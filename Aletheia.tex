@@ -1,0 +1,977 @@
+% This is "sig-alternate.tex" V2.0 May 2012
+% This file should be compiled with V2.5 of "sig-alternate.cls" May 2012
+%
+% This example file demonstrates the use of the 'sig-alternate.cls'
+% V2.5 LaTeX2e document class file. It is for those submitting
+% articles to ACM Conference Proceedings WHO DO NOT WISH TO
+% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
+% The 'sig-alternate.cls' file will produce a similar-looking,
+% albeit, 'tighter' paper resulting in, invariably, fewer pages.
+%
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V2.5) produces:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) NO page numbers
+%
+% as against the acm_proc_article-sp.cls file which
+% DOES NOT produce 1) thru' 3) above.
+%
+% Using 'sig-alternate.cls' you have control, however, from within
+% the source .tex file, over both the CopyrightYear
+% (defaulted to 200X) and the ACM Copyright Data
+% (defaulted to X-XXXXX-XX-X/XX/XX).
+% e.g.
+% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
+% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%
+% ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions _only_ to
+% Gerald Murray (murray@hq.acm.org)
+% ===============================================================
+%
+% For tracking purposes - this is V2.0 - May 2012
+
+\documentclass{sig-alternate}
+
+
+\usepackage[tight,footnotesize]{subfigure}
+
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{cite}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+
+\begin{document}
+%
+% --- Author Metadata here ---
+%\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
+%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+\title{To be True or Not? A General Framework for False-name-proof Spectrum Auctions}
+%\subtitle{[Extended Abstract]
+%\titlenote{A full version of this paper is available as \textit{Author's Guide to Preparing ACM SIG Proceedings Using \LaTeX$2_\epsilon$\ and BibTeX} at \texttt{www.acm.org/eaddress.htm}}
+%}
+%
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
+
+\numberofauthors{5} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+%
+\author{
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+\alignauthor Qinhui Wang\\
+       \affaddr{National Key Lab. for Novel Software Technology}\\
+       \affaddr{Nanjing University}\\
+       %\affaddr{Wallamaloo, New Zealand}\\
+       \email{qhwang@dislab.nju.edu.cn}
+%% 2nd. author
+%\alignauthor Baoliu Ye\\
+%%\titlenote{The secretary disavows any knowledge of this author's actions.}\\
+%       \affaddr{National Key Lab. for Novel Software Technology}\\
+%       \affaddr{Nanjing University}\\
+%%       \affaddr{Dublin, Ohio 43017-6221}\\
+%       \email{yebl@nju.edu.cn}
+%% 3rd. author
+%\alignauthor Song Guo\\
+%%{\o}rv{\"a}ld\titlenote{This author is the one who did all the really hard work.}\\
+%       \affaddr{School of Computer Science and Engineering}\\
+%%       \affaddr{1 Th{\o}rv{\"a}ld Circle}\\
+%       \affaddr{The University of Aizu}\\
+%       \email{sguo@u-aizu.ac.jp}
+%\and  % use '\and' if you need 'another row' of author names
+%% 4th. author
+%\alignauthor Tianyin Xu\\
+%       \affaddr{Department of Computer Science and Engineering}\\
+%       \affaddr{U.C. San Diego}\\
+%       \email{xuty1985@gmail.com}
+%% 5th. author
+%\alignauthor Sanglu Lu\\
+%       \affaddr{National Key Lab. for Novel Software Technology}\\
+%       \affaddr{Nanjing University}\\
+%%       \affaddr{California 94035}\\
+%       \email{sanglu@nju.edu.cn}
+% 6th. author
+%\alignauthor Charles Palmer\\
+%       \affaddr{Palmer Research Laboratories}\\
+%       \affaddr{8600 Datapoint Drive}\\
+%       \affaddr{San Antonio, Texas 78229}\\
+%       \email{cpalmer@prl.com}
+}
+% There's nothing stopping you putting the seventh, eighth, etc.
+% author on the opening page (as the 'third row') but we ask,
+% for aesthetic reasons that you place these 'additional authors'
+% in the \additional authors block, viz.
+%\additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
+%email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
+%(The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
+%\date{30 July 1999}
+% Just remember to make sure that the TOTAL number of authors
+% is the number that will appear on the first page PLUS the
+% number that will appear in the \additionalauthors section.
+
+\maketitle
+\begin{abstract}
+
+The problem of dynamic spectrum redistribution has been extensively studied in recent years. Auction has been widely accepted as one of the most effective approach to solve this issue. Recently, a number of \emph{strategy-proof} (a.k.a. \emph{truthfulness}) auction mechanisms have been proposed to improve spectrum allocation efficiency by stimulating bidders to truthfully reveal their valuations of spectrum. However, as investigated in this paper, they suffer from the market manipulation of \emph{false-name bids} where a bidder can manipulate the auction by submitting bids made under fictitious names. In this paper, we study this new type of cheating in large-scale spectrum auctions, investigating its impact on auction outcomes. As shown in this paper, the false-name bid cheating becomes a serious threat when the number of participants grows. We find that false-name bid cheating is easy to form for malicious bidders, and particularly it is hard to be detected, which would cause significant damage in auction efficiency and revenue.
+
+In this paper, we present ALETHEIA, a new \emph{false-name-proof} auction framework for large-scale dynamic spectrum auction. Different from prior work on spectrum auctions, ALETHEIA not only provides strategy-proofness but also resists false-name bid cheating. Moreover, ALETHEIA enables spectrum reuse across bidders which would significantly improve spectrum utilization. Our theoretic analysis and simulation results further show that ALETHEIA achieves good spectrum redistribution efficiency with low computational overhead. Finally, ALETHEIA is shown to be flexible, supporting diverse bidding formats for multiple market objectives.
+\end{abstract}
+
+% A category with the (minimum) three required fields
+\category{C.4}{Performance of Systems}{Design studies; Modeling techniques}
+\category{I.1.2}{Algorithms}[Analysis of algorithms]
+\terms{Algorithms; Design; Economics}
+\keywords{Spectrum Allocation; False-name-proof Mechanisms; Cognitive Radio Networks}
+
+\section{Introduction}
+Radio spectrum is a critical but scarce resource for wireless communications. On one hand, the fast growing wireless services and devices are exhausting the limited spectrum. On the other hand, it has been widely understood that most blocks of the licensed spectrum, \emph{e.g.,} TV channels, are under-utilized \cite{WT:06}. With the advances in cognitive radio (CR) techniques, Dynamic Spectrum Access (DSA) has been proposed to address the dilemma \cite{survey:06}. Under DSA, licensed users (called \emph{primary users}) are encouraged to open up their idle spectrum to unlicensed users (called \emph{secondary users}). It is a win-win situation that primary users can obtain financial gains by leasing their idle spectrum and the service requirements of secondary users can be satisfied.
+
+Auctions have been widely accepted as an efficient approach to re-distribute spectrum among secondary users due to their perceived fairness and allocation efficiency \cite{PUP:04}. In such situations, secondary users are allowed to bid for spectrum by their short-term local usages, and the protected spectrum will be assigned to secondary users by the properly designed auctions to produce the best economic outcomes.
+
+
+A successful auction must be resilient to selfish bidders, who always seek to manipulate the auction outcomes by rigging their bids to improve their own utilities. To make the best use of spectrum, an auction must discourage bidders from cheating and instead encourage them to reveal their true valuations of the spectrum to the auctioneer. In this context, prior works have developed \emph{strategy-proof} (a.k.a. \emph{truthful}) spectrum auctions \cite{Mobicom08:Zhou,Mobihoc09:Jia,Gupta11:Info,Wu:11:INFOCOM} to discourage this single bid cheating, because the property of strategy-proofness ensures that no bidder can improve its own utility by bidding other than its true valuation.
+
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=2in]{scenario}
+%\caption{An auction scenario of false-name bid cheating, where bidder A uses two names (A and A$^{'}$ )to bid in the auction.}
+%\label{fig_sce}
+%\end{figure}
+
+Strategy-proof auctions, however, become ineffective when false-name bids are allowed, \emph{i.e.,} when bidders submit the bids made under fictitious identifiers to manipulate the auction results.
+%Figure \ref{fig_sce} shows a scenario where bidder A can use two names ($A$ and $A'$) to bid, with the objective of improving his own utility.
+In fact, false-name bid cheating has emerged in various auctions running on Internet \cite{Yokoo:ICDCS:00,Yokoo:GEB:04}. In this context, selfish bidders are able to obtain advantages by providing false-name bids, which would lead to untruthful bidding and unfair scarcity \cite{Yokoo:GEB:04}. Similarly, in Cognitive Radio Networks (CRNs), a secondary user equipped with cognitive radio can easily generate multiple service set identifiers (SSID) by hardware or by software \cite{Clancy:08,ICC11:Tan,MILCOM:13}, \emph{e.g.,} the Atheros chipsets support up to 64 identifers for one physical device.
+%a malicious bidder can easily generate multiple identifiers using cognitive radio \cite{Clancy:08,ICC11:Tan,MILCOM:13}.
+Therefore the same cheating is inherent to breed in spectrum auctions for CRNs. Strategy-proof auctions are designed to address the bid cheating with only single identifier, and thus cannot prevent \emph{false-name bid cheating} from improving their utilities. Therefore, besides providing strategy-proofness, we also need to resist false-name bid cheating in spectrum auction designs. Unfortunately, due to the open, mobile and ubiquitous nature of CR users, it is practically impossible to detect false identifiers via authentication, and thus is very difficult to detect such a dishonest action. An effective way to prevent false-name manipulation is to design a \emph{false-name-proof} mechanism, where bidders are encouraged to bid truthfully using a single identifier, \emph{i.e.,} profit gain via submitting false-name bids is impossible.
+
+In this paper, we study false-name bid cheating in the context of emerging large-scale spectrum auctions and aim to design a false-name-proof auction mechanism. Our work differs from prior work on false-name-proof auctions \cite{Terada:03:AAMAS,Yokoo:ijcai:01} because these new spectrum auctions must consider \emph{spectrum reusability}. Unlike traditional goods, \emph{e.g.,} books or paintings, spectrum is reusable across bidders. The competition among bidders is now defined by a large set of complex interference constraints, which not only provides a fertile breeding ground
+for false-name bid cheating, but also complicates the auction design \cite{Mobicom08:Zhou}.
+
+To understand and address false-name bid cheating in spectrum auctions, our study first seeks to answer these two key question: (1) \textit{Is the false-name bid cheating a big threat to spectrum auctions?} and (2) \textit{Can we directly apply or extend existing false-name-proof auction designs for spectrum allocations?}. To answer the first question, we start form experimenting on the state-of-the-art strategy-proof spectrum auction designs \cite{Mobicom08:Zhou} and \cite{Wu:11:INFOCOM}, to examine the impact of false-name bids. We show that a bidder can easily improve its utility via a simple cheating pattern, no matter how other bidders bid. As a result, bidders have incentive to submit false-name bids and cheat, leading to degrade auction revenues by up to 40\%. To answer the second question, we study current false-name-proof designs from conventional auctions. Existing designs \cite{Yokoo:AI:02,Yokoo:ijcai:01}, however, target conventional auctions without reusability. We show that they either breaks the false-name-proofness or result in significant degradation of spectrum utilization, when directly applying or extending them to dynamic spectrum auctions.
+
+%To understand and address false-name bid cheating in spectrum auctions, our study seeks to answer two key questions:
+%\textit{(1): Is false-name bid cheating a big threat to spectrum auctions?}
+%\textit{(2): If so, how can one design auctions to deal with them, and what is the cost for adding such robustness?}
+
+%To examine the impact of false-name bids, we start form experimenting on the state-of-the-art strategy-proof spectrum auction design \cite{Mobicom08:Zhou}. We show that a bidder can easily improve its utility via a simple cheating pattern, no matter how other bid. Now bidders have incentive to submit false-name bids and cheat, degrading auction revenues by up to 40\%.
+
+In this paper, we propose ALETHEIA, a new framework for false-name-proof spectrum auction.  Different form \cite{Yokoo:AI:02,Yokoo:ijcai:01}, ALETHEIA operates under the complex bidder interference constraints and exploits spectrum reusability to service a large number of secondary users. Different form \cite{Yokoo:AI:02,Yokoo:ijcai:01}, ALETHEIA operates under the complex bidder interference constraints and exploits spectrum reusability to service a large number of secondary users. Intuitively, to leave bidders no incentive to submit false-name bids, the price of buying a set of channels must be smaller than or equal to the sum of prices for buying these channels separately using multiple identifiers. Therefore, a tailored pricing scheme is required to be designed. To complete this, we redesign the auction structure and present a price-oriented mechanism, where prices of bidders are computed first and winners are then determined independently based on these prices.
+%This looks quiet different from traditional auctions where winners and allocation are always determined first and then payments of winners are determined.
+By doing this, we can focus on designing our pricing scheme. Similar price-based representations have also been used by others, like \cite{Lavi:03:FOCS}. However, when designing this kind of price-oriented mechanism, a critical requirement is to ensure the \emph{allocation feasibility}, \emph{i.e.,} no conflicting bidders will be allocated with the same spectrum bands. This is a hard problem since the spatial reusability always generates complicated constraints \cite{Mobicom08:Zhou}. To conquer this issue, we present a novel procedure to sort the bidders, and then design the auction rules based on the ordered bidders.
+
+%Existing designs \cite{Yokoo:AI:02,Yokoo:ijcai:01}, however, target conventional auctions without reusability. As shown in this paper, directly applying or extending them to dynamic spectrum auctions either breaks the false-name-proofness or creates excessive interference.
+%In this paper, we propose ALETHEIA, a new framework for false-name-proof spectrum auction.  Different form \cite{Yokoo:AI:02,Yokoo:ijcai:01}, ALETHEIA operates under the complex bidder interference constraints and exploits spectrum reusability to service a large number of secondary users.
+%ALETHEIA achieves false-name-proofness in polynomial complexity and supports diverse bidding formats for multiple market objectives.
+
+\textbf{Summary of Contributions.} Targeting emerging large-scale dynamic spectrum auctions, our work makes two key contributions. First, we show that existing spectrum auction designs are highly vulnerable to false-name-bid cheating, especially fewer fake identifiers is easy to form and hard to be detected. Through experiments on current spectrum auction designs, we find that false-name bids can significantly damage auction performance. Second, we present ALETHEIA, a new false-name-proof spectrum auction design. ALETHEIA effectively resist false-name bid cheating by diminishing its gain, leaving bidders no incentive to submit false-name bids. Different form prior solutions, ALETHEIA not only ensures false-name-proofness, but also enables spectrum reuse to improve spectrum redistribution efficiency, and does so with polynomial-time complexity. To our best knowledge, ALETHEIA is the first large-scale spectrum auction design achieving false-name-proofness in such a  revenue-efficient and cost-efficient manner.
+
+%The remainder of this paper is organized as follows. Section 2 introduces the preliminaries on spectrum auctions. Section 3 presents the study of false-name bid cheating in spectrum auctions. Section 4 describes the design challenges. ALETHEIA design is proposed in Section 5, and its extension is given in Section 6. Experiments results are given in Section 7, and Section 8 concludes this paper.
+
+\section{Preliminaries}
+In this section, we first describe the system model where a set of spectrum channels are auctioned and then introduce the objectives to design efficient, economic-robust spectrum auction mechanisms.
+
+\subsection{Auction Model}
+We consider a cognitive radio network consisting one primary user (auctioneer) and $N$ secondary users (bidders) $\mathcal{N}=\{1,\ldots, N\}$. The spectrum to be auctioned is divided into $K$ identical channels denoted as $\mathcal{K} = \{1, \ldots, K\}$. We assume each bidder $i\in \mathcal{N}$ requests $d_i (0 < d_i\le K)$ channels and it has a \emph{valuation} function $v_i$ that assigns a non-negative value for the requested channels, \emph{i.e.,} $v_i: \mathcal{K} \rightarrow \mathbb{R}^{+}$. Each bidder submits its bid valuation $b_i$ , which does not have to be equal to the true valuation $v_i(d_i)$ if lying is profitable. To simplify description, we use $t_i$ to denote the per-channel bid, \emph{i.e.,} $t_i = b_i/d_i$.
+%For easy description, we use $t_i$ to denote the per-channel bid valuation, defined in Equation (\ref{eq_perch}).
+%
+%\begin{equation}
+%\label{eq_perch}
+%t_i = b_i/d_i
+%\end{equation}
+
+We consider sealed-bid auctions where all bidders simultaneously submit their bids to the auctioneer. After collecting all bids and requests, the auctioneer determines the winners by the allocation rule and then charge each winner with the payment $p_i(b_i,\mathbf{b}_{-i})$, which equals to 0 if bidder $i$ is losing. Here $\mathbf{b}_{-i}$ denotes the bid list excluding that of bidder $i$. The \emph{utility} of bidder $i$, denoted by $u_i(b_i, \mathbf{b}_{-i})$, is then defined as the difference between valuation and payment, \textit{i.e.}, $u_i(b_i, \mathbf{b}_{-i})=v_i(d_i)-p_i(b_i,\mathbf{b}_{-i})$. Notations $v_i(d_i)$, $p_i(b_i, \mathbf{b}_{-i})$ and $u_i(b_i, \mathbf{b}_{-i})$ are sometimes simplified as $v_i$, $p_i$ and $u_i$, respectively, if no confusion will be incurred.
+
+
+
+%To exploit the \emph{spatial reusability}, which can increase the efficiency of spectrum utilization, we characterize the interfering relationship among bidders
+
+In this paper, we focus on the widely-used \emph{protocol interference model} \cite{Gupta:00, Mobicom03:Jain}, a succinct model to formulate the impact of interference within resource allocation problems, in order to highlight our contributions in auction mechanisms. With the protocol model employed, the interference can be well captured by a conflict graph $G(\mathcal{N}, \mathcal{E})$, where $\mathcal{E}$ is the collection of all edges \cite{Mobicom03:Jain}. An edge $(i,j)$ belongs to $\mathcal{E}$ if bidders $i$ and $j$ conflict with each other when they use the same channel simultaneously.
+
+When a bidder uses multiple identifiers to submit bids, we assume these generated virtual bidders (identifiers) inherit the interference condition of the real bidder, \emph{i.e.,} they have the same neighbors in conflict graph, and they conflict with each other to obtain different channels. This assumption is very natural. Otherwise, these virtual bidders serving for the real bidder may be allocated with the same channels which it is helpless for real use.
+
+%Since the generated false identifers of a bidder is serving for the real bidder such that it is very natural to assume that they share the same interference constraints, \emph{i.e.,} having the same neighbors in conflict graph, and these identifiers conflict with each other to obtain different channels. Otherwise, these fake identifiers may be allocated with the same channels which is helpless for real use.
+%Let $\mathbb{N}(i)$ be the set of bidders that interfere with $i$ (\emph{i.e.,} the neighboring nodes of $i$ in $G$).
+
+\subsection{Solution Concepts}
+%In this subsection, we introduce the objectives to design efficient, economic-robust cloud auction mechanisms.
+%Our goal is to design economic-robust dynamic spectrum auction mechanisms.
+We here review the important solution concepts used in this paper from mechanism design. The definitions of these concepts are summarized as follows.
+%We start by introducing the definition of \emph{strategy-proofness} \cite{MIT:book,Oxford:book}.
+\begin{definition}[Strategy-proofness \cite{MIT:book,Oxford:book}]
+\label{def_spm}
+An auction mechanism is strategy-proof (or truthful) if for any bidder $i$ and $\mathbf{b}_{-i}$,
+%reporting its true valuation (i.e., $b_i=v_i$) is a dominant strategy for her, i.e.,
+$u_i(v_i,\mathbf{b}_{-i}) \ge u_i(b_i,\mathbf{b}_{-i})$ holds for any $b_i \neq v_i$.
+\end{definition}
+
+\begin{definition}[False-name-proofness \cite{Yokoo:ICDCS:00, Todo:09:AAMAS}]
+\label{def_fnp}
+An auction mechanism is false-name-proof if for any bidder $i$ using $m$ false identifiers $i_1,\ldots,i_m$ to participate the auction and any $\mathbf{b}_{-i}$,
+\begin{equation*}
+  u_i(v_i, \mathbf{b}_{-i}) \ge \sum_{j=1}^m u_{i_j}(b_{i_j},\mathbf{b}_{-i}\cup I_{-j}^m)
+\end{equation*}
+%for any $b_{i_l}$, $l\in [k]^+$,
+where $I_{-j}^m=\{b_{i_l}:l\in \{1,\ldots,m\}, l\neq j\}$.
+\end{definition}
+
+Strategy-proofness (a.k.a. \emph{truthfulness}) prohibits improved utility from cheating on bid valuation, while false-name-proofness from submitting false-name bids. It is worth mentioning that, false-name-proofness generalizes the concept of strategy-proofness by observing their definitions. In other words, the latter is a sufficient but in general not a necessary condition of the former.
+
+
+
+%Besides false-name-proofness, the auction mechanism should also have the following property named individual rationality, which guarantees that each bidder has a non-negative utility if it bids truthfully, and thus incentivizes  users to participate the auction.
+%\begin{definition}[Individual Rationality]
+%An auction mechanism is individual rational if no bidder is paid more than his bid, \textit{i.e.}, $b_i \geq p_i$, for any $i\in \mathcal{N}$.
+%\end{definition}
+
+
+
+\section{False-name Bid Cheating in Spectrum Auctions}
+In this section, we use network experiments to examine the formation and the impact of false-name cheating in emerging dynamic spectrum auctions. We show that the property of local competition provides a fertile breeding ground for false-name bid cheating, making it effective in raising bidder utility and degrading auction revenue.
+
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=2in]{samplenet}
+%\caption{A sample network where bidders can submit false-name bids, we mark out the effective RF cheating using asterisk symbolic.}
+%\label{fig_samn}
+%\end{figure}
+
+\subsection{Cheating Patterns}
+We start from identifying representative false-name cheating patterns in large-scale spectrum auctions and examining their effectiveness in raising utility. Because the pattern depends on auction design, we use two well-known large-scale spectrum auction designs, VERITAS \cite{Mobicom08:Zhou} and SMALL \cite{Wu:Info:11}, as illustrative examples. Generally, there are two approaches to consider spatial reusability when designing spectrum auctions. One is combining the conflict condition when designing the auction with VERITAS as a representative, and the other is  adopting conflict-free grouping method, with SMALL as a representative. Furthermore, both VERITAS and SMALL are strategy-proof spectrum auctions for large-scale networks. Due to these considerations, we conduct experiments on the two designs.
+%First, VERITAS enables spectrum reuse in large-scale networks. Second, VERITAS is a representative design of strategy-proof spectrum auctions. Third, VIERITAS is cost-efficient and also support diverse bidding formats.
+In the following, we show that bidders can exploit the local pricing dependency to form false-name bid cheating to improve utility.
+
+
+
+\textbf{Cheating Pattern in VERITAS}. We know that the pricing rule of VERITAS is based on the concept of \emph{critical neighbor} and thus a bidder can exploit the local pricing dependency in VERITAS to form a false-name bid cheating.  In this context, a simple form of cheating is generating a false-name bid, \emph{i.e.,} one bidder bids for spectrum using two identifiers. We refer this cheating as Real-Fake (RF) cheating, which means that a bidder uses two identifiers (one is Real name and the other is fake name) to bid. RF cheating works as follows: In a situation, both Real bidder and Fake bidder win while only one bidder is charged, since the other bidder's critical neighbor does not exist and thus is charged zero. Therefore, for the bidder, its real utility is improved while obtaining the same spectrum.
+%We use an example to illustrate this. Figure \ref{fig_ex} shows the conflict graph of 3 bidders (A,B,C) competing for 3 channels. When bidding truthfully using a single name, the utilities are 3,0,3 respectively. However, when bidder
+In another situation, Real bidder bids high to win the auction and Fake bidder bids extremely low and is still is Real bidder's critical neighbor, then Real bidder will be charged the bid of Fake bidder and the total utility of the bidder will increase significantly.
+
+\textbf{Cheating Pattern in SMALL}. We know that the pricing rule of SMALL is based on the concept of group bid which is determined by the lowest bid of bidders in the group, and all bidders in a winning group are wining except the bidder with the lowest bid. In this context, Real bidder and Fake bidder will be grouped into different groups since they conflict with each other. We consider a scenario where Real bidder's group $R$ whose group bid is less than Real bidder's bid, and the bid of Fake bidder's group $F$ is equal to Fake bidder's bid.  Suppose group $R$ first loses and group $F$ wins. In this case, both real bidder and fake bidder lose. Now if Fake bidder bids extremely low and thus make group $R$ win and $F$ loses. In this case Real bidder wins and thus its utility will increase.
+%still determines the group bid by which the Real bidder is charged. As a result, the total utility of the bidder will increase.
+
+
+
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=2.5in]{ugain}
+%\caption{Utility gain of each bidder using RF cheating.}
+%\label{fig_ugain}
+%\end{figure}
+
+\begin{figure}[!t]
+\centerline{
+\subfigure[]{\includegraphics[width=1.8in]{ugain.eps}%
+\label{fig_veritas}}
+\subfigure[]{\includegraphics[width=1.8in]{smallgain.eps}
+\label{fig_small}}
+}
+\caption{Utility gain of each bidder using RF cheating.}
+\label{fig_ugain}
+\end{figure}
+
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=2.5in]{revloss}
+\caption{Generated revenue compared to the situation where no bidders cheat, when RF cheating is effective.}
+\label{fig_loss}
+\end{figure}
+
+In overall, RF cheating is easy to form and can improve utility in a diverse way. To examine the effectiveness of RF cheating, we simulate a set of experiments with a set of 1000 bidders and 10 channels are auctioned. We set the interference range as 1 and all bidders are set in a 100$\times$100 square, where bidders have about 3 conflict neighbors in average, mapping to a high degree of spectrum reuse. For VERITAS, each bidder's request is integer and randomly draw from [1,6]. For SMALL, since it is a single-unit auction and thus we assume each bidder requests only one channel. We assume, without false-name bids, the per-channel bids are integers randomly distributed in the range [1,10]. Bidders start to generate false-name bids in each auction, where the Real bidder bids for $d_i$ and the Fake bidder bids for $6-d_i$ channels in VERITAS and both Real bidder and Fake bidder bid for one channel in SMALL. Our experiments show that in each auction, 200+ RF-cheating can effectively increase the utility.
+%A sample network with marked RF cheating bidder are shown in Figure \ref{fig_samn}.
+In addition, we examine the profit gain of each RF cheating bidder in 100 experiments and the results are plotted in Figure \ref{fig_ugain} where all other bidders are also selfish. These results show that many bidders have incentives to submit false-name bids since it is easy to form and remains highly effective.
+
+
+\subsection{Impact on Performance of Spectrum Auctions}
+We now examine the impact of false-name cheating from the auctioneer's perspective, focusing on the loss of auction revenue. We verify the intuition using the same experiments described in the above. Our main conclusion is that the revenue loss form RF cheating depends heavily on the number of RF cheating.
+
+We plot the results in Figure \ref{fig_loss}, where we compare the generated revenue to that no bidders submit false-name bids. We observe that when the number of RF cheating is low, the revenue loss in under controlled while when the number of RF cheating exceeds a threshold, the revenue start to decrease quickly and the revenue is reduced by 40\% after all 200+ bidders submit false-name bids.
+
+In summary, our experiments show that the unique requirement of spectrum reuse and resulted local competition provide large incentives for bidders to submit false-name bids. Even simple RF cheating can gain unfair improvements in utility. As a result, lots of false-name cheating will form. As a result, they together will damage the auction revenue and fairness significantly.  These observations motive us to find mechanisms that effectively resist false-name bid cheating in large-scale networks.
+
+
+
+%\section{Study OF Existing Auction Mechanisms}
+%To enable efficient spectrum trading, the auction design must exploit spatial reusability to improve spectrum utilization and achieves false-name-proofness. The reusability, however, introduces significant difficulties in achieving false-name-proofness. As highlighted by the following table, Prior work on truthful spectrum auction designs (\emph{e.g.,} VERITAS \cite{Mobicom08:Zhou}) do not achieve false-name-proof. Conventional false-name-proof auction designs (\emph{e.g.,} IR\cite{Yokoo:ijcai:01}) do not consider reusability.
+%
+%\begin{table}[htbp]
+%\label{tab:rw}
+%\begin{tabular}{lclclcl}
+%\toprule
+%Existing spectrum & Spectrum & \multirow{2}{*}{\centering Truthfulness} & False-name \\
+%
+%auction designs 	   &	  Reuse  &  &	-proofness   \\
+%\midrule
+%VCG  & $\times$ & $\surd$ & $\times$\\
+%VERITAS  & $\surd$ & $\surd$ & $\times$\\
+%IR  & $\times$ & $\surd$ & $\surd$\\
+%
+%\bottomrule
+%\end{tabular}\end{table}
+%
+%%In the following, we illustrate the challenges in designing false-name-proof and efficient spectrum auctions. We start from a truthful spectrum auction design and show that it loses false-name-proofness when bidders are allowed to use multiple identifiers. We then briefly describe a conventional false-name-proof auction design and show that it also loses false-name-proofness when applied to spectrum auctions.
+%In the following, we study some closely related existing auction mechanisms. We start from a representative truthful spectrum auction design and show that it loses false-name-proofness when bidders are allowed to use multiple identifiers. We then briefly describe a conventional false-name-proof auction design and show that it also loses false-name-proofness when applied to spectrum auctions.
+
+%\subsection{VCG Fails to be False-name-proof}
+
+
+%\subsection{VERITAS Auction Design}
+%VERITAS is one of the most famous spectrum auction, and it is a representative design of
+%truthful spectrum auctions while addressing spectrum reusability. For the sake of completeness, we first give a brief description of VERITAS which consists of the following three steps, followed by a formal proof of our conclusion.
+%
+%\emph{\textbf{Allocations:}}
+%\begin{enumerate}
+%\item Sort bidders in a descending order by the per-channel bid and set each bidder's available channel set as $\mathcal{K}$.
+%\item Allocate $d_i$ channels to the first bidder $i$ using the lowest indexed channel in $i$'s available channel set, remove $i$ from the bidder list, remove the allocated channels from $i$'s conflicting neighbors' available channel sets.
+%\item Repeat 2) until all the bidders have been considered.
+%\end{enumerate}
+%
+%\emph{\textbf{Pricing:}}
+%Find the losing bidder $j$ that has the maximum per-channel bid and would win if winner $i$ did not participate. Then charge each winner $i$ with $p_i = t_j * d_i$. Otherwise, the payment is zero.
+%
+%
+%%\begin{figure}[!t]
+%%\centerline{
+%%%\subfigure[Cloud Utilization]{\includegraphics[width=1.8in]{cutil}
+%%%\label{fig_cf_a}}
+%%\subfigure[No bidders submit false-name bids]{\includegraphics[width=1.4in]{toy.eps}%
+%%\label{fig_toy}}
+%%\subfigure[Bidder A use two names (A$_1$ and A$_2$) to bid]{\includegraphics[width=1.4in]{count.eps}
+%%\label{fig_count}}
+%%%\subfigure[Bidder Satisfactory]{\includegraphics[width=2in]{cuser}%
+%%%\label{fig_cf_d}}
+%%}
+%%\caption{An illustration example of that why VERITAS is not false-name-proof.}
+%%\label{fig_ex}
+%%\end{figure}
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3in]{countV}
+%\caption{An example of RF cheating in VERITAS. When bidder A uses two names (A$_1$ and A$_2$) to bid, it increases its utility by getting the same channels and paying less.}
+%\label{fig_ex}
+%\end{figure}
+%
+%
+%\begin{theorem}
+%  VERITAS does not satisfy the property of false-name-proofness.
+%\end{theorem}
+%\begin{proof}
+%We prove this by constructing a counter example. We first consider a situation where there are three bidders (named A, B and C) compete for $K=3$ channels. The bids and demands of bidders are shown in Figure \ref{fig_ex} (left figure). According to VERITAS, bidder A wins 3 channels and bidder C wins 2 channels, while bidder B loses. The utility of A is computed as $9-2*3=3$. Now we assume bidder A uses two identifiers, namely A$_1$ and A$_2$, to participate the auction. As shown in Fig. \ref{fig_ex} (right figure), bidder A$_1$ win 2 channels and pays 2 for each channel, and bidder A$_2$ wins 1 channel and pays 0. Therefore, the sum of utilities of A$_1$ and A$_2$ are $2+3=5$.  Therefore, using a false name is profitable for bidder A. This completes the proof of the theorem.
+%\end{proof}
+
+\section{Design Challenges}
+To enable efficient spectrum trading, the auction design must exploit spatial reusability to improve spectrum utilization and achieves false-name-proofness. The reusability, however, introduces significant difficulties in achieving false-name-proofness.
+In this section, we study two most relevant false-name-proof designs \cite{Yokoo:ijcai:01, Terada:03:AAMAS} from conventional auctions and show that they cannot even guarantee truthfulness and thus lose false-name-proofness when applied to spectrum auctions.
+%We then introduce a naive design of false-name-proof spectrum auction which serves as the benchmark to evaluate a more refined mechanism that will be proposed in the next section.
+
+\subsection{GAL Auction Design}
+In \cite{Terada:03:AAMAS}, a false-name-proof multi-unit auction design named GAL is presented. GAL uses greedy allocation proceeds as follows. Sort the bidders in a descending order by the per-channel bid $t_i=b_i/d_i$. Then sequentially allocate channels to bidders until find the first reject bidder $j$. Each winner $i$ is charged by $d_i*t_j$. The natural extension to spectrum auctions leads to the following allocation and pricing algorithms.
+
+\emph{\textbf{Allocations:}}
+\begin{enumerate}
+\item Sort bidders in a descending order by the per-channel bid and set each bidder's available channel set as $\mathcal{K}$.
+\item Sequentially allocate channels to bidders. For each bidder $i$, if there are enough channels ($\ge d_i$), allocate $d_i$ channels, with the lowest indexes in its available channel set. Then remove the allocated channels from $i$'s conflicting neighbors' available channel sets.
+%\item Repeat 2) until all bidders have been considered.
+
+\end{enumerate}
+
+\emph{\textbf{Pricing:}}
+To charge winner $i$, find the first rejected conflicting neighbor $j$, then the payment is $d_i*t_j$. If there is no such neighbor, charge 0.
+%Find the losing bidder $j$ that has the maximum per-channel bid and would win if winner $i$ did not participate. Then charge each winner $i$ with $p_i = t_j * d_i$. Otherwise, the payment is zero.
+
+We show the above auction is not false-name-proof using a counter example. Figure \ref{fig_gal} shows the scenario of 5 bidders (A-E) competing for 2 channels. When bidding truthfully, bidder E loses and its utility is 0. However, when bidder E cheats by raising its bids to 4, it will obtain a channel and be charged with 0, increasing its utility to 1. Hence this mechanism is not strategy-proof and thus is not false-name-proof.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=2.8in]{GAL}
+\caption{An illustrative example shows extended GAL is not false-name-proof, where bidder E can improve its utility by raising its bid.}
+\label{fig_gal}
+\end{figure}
+
+
+\subsection{IR Auction Design}
+In \cite{Yokoo:ijcai:01}, another false-name-proof multi-unit mechanism named Iterative Reducing (IR) is proposed. The basic idea behind IR is that it determines the allocations sequentially from larger demands. We now show that it loses false-name-proofness when applied to spectrum auctions, considering the spatial reuse. We extend IR by inheriting the basic idea while considering spatial reuse, leading to the following auction design.
+%In \cite{Yokoo:ijcai:01}, a false-name-proof mechanism named Iterative Reducing (IR) is proposed to address single-item multi-unit auction. We use IR as an illustrative example since it is a representative design of false-name-proof auction and it is multi-unit and thus is most relevant with our scenario. The basic idea behind IR is that it determines the allocations sequentially from larger requirements. We now show that it loses false-name-proofness when applied to spectrum auctions, considering the spatial reuse.
+
+%As described in the above, we know there are two common ways to consider spatial reusability. Therefore, the first way for extension is to combine the conflict condition when designing the auction, and still adopts the basic idea of IR.
+
+%We describe the extended IR mechanism for spectrum auction using the following three steps. When all bidders conflict with each other, \emph{i.e.,} the conflict graph is a complete graph, the extended IR mechanism is equivalent to IR, as proved in our prior work \cite{Wang:Info:15}.
+
+%More specifically, it first check whether there exists a bidder whose evaluation value for a bundle of $M$ units is larger than its reservation price. If so, the total $M$ units are allocated to the bidder. If not, the number of units in a bundle is reduced one by one, and it recursively allocates the smaller bundles.
+
+%In this section, we propose a false-name-proof cloud auction by extending IR, and we will use it as a benchmark to evaluate the performance of our proposed mechanism.
+
+\emph{\textbf{Allocation:}}
+
+\begin{enumerate}
+\item Group bidders where bidders with the same demands $d_i$ constitute a group. These groups are sorted in a descending order by $d_i$. In each group, all bidders are sorted in a descending order by per-channel bid $t_i$.
+\item Sequentially check the ordered groups. For each group, we sequentially allocate the channels to the bidder from the one with highest per-channel bid to the lowest one, with the lowest indexed channels in its available channel set. If all bidders in this group have been allocated, then continue. If we find the first rejected bidder $j$ in a group, we terminate the allocation.
+\end{enumerate}
+
+\emph{\textbf{Pricing:}} If all bidders of a group win, these bidders are charged 0. If not all bidders of a group can be allocated, then each winner $i$ in this group is charged by $d_i*t_j$, where $j$ is the first rejected bidder.
+
+
+
+
+When all bidders conflict with each other, \emph{i.e.,} the conflict graph is a complete graph, the extended IR mechanism is equivalent to IR, as proved in our prior work \cite{Wang:Info:15}. Therefore this extension is natural and reasonable. However, we show the above mechanism is not false-name-proof, using a counter example. Figure \ref{fig_ir} shows a scenario of 5 bidders (A-E) competing for 4 channels. By the grouping method, the bidders A, B, C and E are grouped in $g_1$, and bidder D constitutes group $g_2$. Consider $g_1$, bidder C loses and its utility is 0. However, when bidder C cheats by bidding 6, then all bidders in group $g_1$ win and thus are charged 0. Therefore C improves its utility to 2, which contradicts the definition of false-name-proofness.
+
+
+%\textbf{Step 1: Sort and Group Bidders.} We first rank the bidders in a decreasing order by the demand $d_i$. Then sequentially group bidders into different groups where bidders with the same $d_i$ constitute a group. The groups are denoted as $g_l$ ($l=1, \cdots, L$) in a decreasing order of their channel demands. For bidders in each group, we sort them in a decreasing order by the per-unit channel bid price $t_i$.
+%
+%
+%\textbf{Step 2: Allocations.} We sequentially check the ranked groups from the one with highest demand to the lowest one. For each group $g_l$, we sequentially allocate the channels to the bidder $i \in g_l$, with the lowest indexed channels in $i$'s available  channel set, until all bidders in this group have been considered. If all the bidders in this group win and then continue to check the next group. Otherwise, terminate the allocation.
+%
+%
+%\textbf{Step 3: Pricing.} Charge each winner $i$ the highest bid of its unallocated conflicting neighbors. If there is no such neighbor, charge 0.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3in]{ire}
+\caption{An illustrative example shows extended IR is not false-name-proof, where bidder C can improve its utility by raising its bid.}
+\label{fig_ir}
+\end{figure}
+
+%In this case, all bidders are charged with 0. If not all bidders in the group can be satisfied, then terminate the auction, and charge each winner $i$ the highest bid of its unallocated conflicting neighbors, and if there is no such neighbor, charge 0.
+
+
+%\begin{theorem}
+%  The extended IR does not satisfy the property of false-name-proofness.
+%\end{theorem}
+%\begin{proof}
+
+%We use a counter example to show that the extended IR will loses false-name-proofness. We consider an example where 4 channels are auctioned and the bids and demands of bidders are shown in Figure \ref{fig_ir}. Now by the mechanism, we known the bidders A, B, C and E are grouped in $g_1$, and bidder D constitutes $g_2$. For $g_1$, we sequentially allocate the channels to bidders. Then bidder A wins CH1 and CH2, bidder B wins CH3 and CH4, and bidder E wins CH1 and CH2. Now since no channels are available for bidder C and thus it loses. Now, if bidder C can cheats on bids by bidding $b=5$, then re-consider group $g_1$, bidders A and C win CH1 and CH2, and bidders B and E win CH3 and CH4. Then by pricing rules, bidder C is charged 0 and thus it can improve the utility by cheating on bids. Therefore, the extended IR is not false-name-proofness.
+
+%This completes the proof.
+%If bidder A bids for 3 channels using a single identifer, shown in Figure. \ref{fig_toy}, bidder A will win 3 channels while the other two bidder lose. Now if bidder A uses two identifiers to bid, shown in Figure. \ref{fig_count}, then by the grouping rule, A$_1$ and $B$ and $C$ are grouped in $g_1$ and A$_2$ is grouped in $g_2$. Now according to the allocation rule, A$_1$ and $C$ win in $g_1$, and A$_2$ wins in $g_2$, and by the pricing rule, A$_1$ is charged with $2*2=4$ and A$_2$ is charged 0 and thus its total utility is 5, which is greater than $3$ where A does not submit false-name bids. This completes the proof.
+%\end{proof}
+
+
+%Another common way to incorporate the spatial reusability of the spectrum into the auction is adopting bid-independent grouping method, as like in \cite{Zhou:09:info}. In other words, we map a group of non-conflicting bidders as a single group bidder and each group conflicts with all other groups. As a result, we can apply IR directly on these groups and then combine the results. A key ingredient of successfully applying IR to ensure the false-name-proofness is the algorithm for computing the group bid and group demand for each group. Similar with \cite{Zhou:09:info}, we define the per-channel bid of each group as the minimal per-channel bid of all bidders in the group, and the channel demand of each group is the maximal demand of all bidders in the group. After that, winning groups are determined by IR and all bidders in a winning group are winning. However, RF cheating is still useful in this mechanism, which works as follows. Since Real bidder and Fake bidder will be grouped into different groups, then Fake bidder bids extremely low and thus lows the Real bidder's price. As a result, the total utility of the bidder will increase.
+
+
+\subsection{Achieving Economic Robustness and Efficiency}
+%Besides, there are two goals for designing an efficient auction mechanism \cite{Nisan:book:07}. One is maximizing the \emph{revenue}, defined as the sum of all winners' payments. The other is maximizing the \emph{social welfare} (a.k.a. \emph{efficiency}), defined as the sum of all winners' bid valuations. However, very little is known about revenue maximization when each bidder's bid valuation does not follow a known distribution \cite{Nisan:book:07}. As a result, when bidders can bid freely, the social welfare is always purchased.
+
+From the above, we see an immediate need for a new spectrum auction design that can enable spectrum reuse to maximize spectrum utilization while being false-name-proof. On the other hand, the \emph{Non-existence Theorem}~\cite{Yokoo:GEB:04} shows that no auctions can simultaneously achieve false-name-proofness while maximizing auction efficiency.  We know Vickrey-Clarke-Groves (VCG) mechanism \cite{Oxford:book} is the most famous technique for designing strategy-proof auction mechanisms. However, by the theorem, we declare that designing a false-name-proof spectrum auction via VCG is impossible since VCG requires producing an outcome with optimal efficiency.
+
+Because the economic properties are necessary to implement the auction, the design should focus on satisfying them first while approximately maximizing efficiency. Thus we mainly focus on designing false-name-proof mechanisms while maximizing the social welfare on a best effort basis, as conducted in \cite{Yokoo:AI:02, Yokoo:ijcai:01}.
+
+%Vickrey-Clarke-Groves (VCG) mechanism \cite{Oxford:book} is the most famous technique for designing strategy-proof auction mechanisms. However, designing a false-name-proof cloud auction via VCG is impossible, as proved in \cite{Yokoo:GEB:04}. Moreover, VCG requires the optimal allocation strategy, which always desires to solve NP-hard problems and thus is not practical.
+
+\section{ALETHEIA Auction Design}
+Motivated by the observations from Sections 3 and 4, we develop ALETHEIA, a new false-name-proof mechanism for market-driven dynamic spectrum auctions.
+%ALETHEIA first computes the prices to be paid for all bidders and determines winners based on the prices.
+Different from \cite{Terada:03:AAMAS,Yokoo:ijcai:01}, ALETHEIA addresses complex bidder interference constraints and exploits spectrum reusability to serve a large number of bidders.
+%By strategically designing the pricing mechanism, ALETHEIA not only achieves similar performance to VERITAS, but also enforces false-name-proofness with lower computational complexity.
+
+%\subsection{Design Rational}
+
+%We design FAITH to support diverse forms of instance requests.
+%In this section, we introduce the main algorithms for the case where all bidders are single-minded, \emph{i.e.,} bidders win the requested bundle or nothing. We will show in next section, FAITH can be extended to a more general case by relaxing such an assumption.
+%We design ALETHEIA to support diverse forms of spectrum requests. In this section, we introduce the main algorithms of ALETHEIA with \emph{strict request}, and the proofs of its false-name-proofness and its computational complexity. In strict requests, a bidder $i$ requests spectrum $d_i$ channels and only accepts allocations of either 0 or $d_i$ channels. We show in Section that ALETHEIA can be easily extended to three other bidding formats, namely (i) \emph{range request} where bidder $i$ requests spectrum by $d_i$ channels but accepts to receive any number of channels between 0 and $d_i$, (ii)\emph{ contiguous strict} requests where the channels in strict requests assigned to $i$ must be contiguously aligned, and (iii) \emph{contiguous range requests} where the channels in range requests assigned to $i$ must be contiguously aligned.
+
+We design ALETHEIA to support diverse forms of spectrum requests. In this section, we introduce the main algorithms of ALETHEIA for the case of \textit{single-minded bidders}. A single-minded bidder $i$ requests spectrum $d_i$ channels and only accepts allocations of either 0 or $d_i$ channels. Most of existing work on false-name-proof auctions are only considering this case. To make ALETHEIA be more general, we show in Section 6 that ALETHEIA can be easily extended to a more general case where bidder $i$ requests spectrum by $d_i$ channels but accepts to receive any number of channels between 0 and $d_i$.
+
+\subsection{Main Algorithms}
+Different from the traditional auction where payment is always determined after the allocation. ALETHEIA first computes the price for each bidder, and then determines the winners according to the finely computed prices.  We here present the pricing algorithm and allocation rules.
+
+For easy illustration, we first introduce a few notations.
+
+\begin{itemize}
+%\item $B$ represents the sorted bidders in a descending order by the per-channel price $t_i = b_i/d_i$.
+\item $\mathbb{N}(i)$ represents the set of $i$'s conflicting neighbors;
+\item $Avai(i)$ represents the available channel set of bidder $i$. The initial value is $\mathcal{K}$ for each bidder $i\in \mathcal{N}$.
+\item $Top(B)$ represents the first bidder in the bidder list $B$.
+\item $Assign(i,d_i)$ assigns $d_i$ channels with the lowest available indices in $Avai(i)$ to bidder $i$, and returns the allocated channel set.
+\end{itemize}
+
+\subsubsection{Sort Bidders}
+
+%When price-based representation is used, a necessary process is to prove its allocation feasibility, \emph{i.e.,}
+Before giving out the pricing algorithm and the allocation rule, we first need sort the bidders into a bidder list. The pricing algorithm and allocation rule will run on the sorted bidder list which is critical for making the allocation be feasibility.
+
+%The sorted bidder list $B$ satisfying the three following properties, where we use $index(i)$ to denote the index of bidder $i$ in $B$ and we use $dist(i,j)$ to denote the shortest distance from bidder $i$ to $j$ in the conflict graph. (1) The first bidder in $B$ has the largest per-channel bid price, we denote this bidder as root bidder $r$. (2) If $dist(i,r)< dist(j,r)$ holds for any bidders $i$ and $j$, we have $index(i) < index(j)$. (3) If $dist(i,r) == dist(j,r)$, and $t_i \ge t_j$, then we have $index(i)< index(j)$.
+
+To obtain the sorted bidder list $B$, we virtually reorganize the conflict graph in a Tree-like structure described as follows. (1) The bidder with the largest per-channel bid constitutes the root node. (2) For each bidder, its conflicting neighbors constitute its child nodes. Note that, the reorganized graph does not change the conflicting conditions of conflict graph. Based on the tree-like structured graph, the bidder list $B$ can be obtained as follows. (1) Root node (bidder) is the first bidder. (2) Bidder $i$'s depth is larger than $j$'s depth, then bidder $i$ is put before bidder $j$ in $B$. (3) Bidders $i$ and $j$ have the same depth, if the per-channel bid of $i$'s parent is larger than that of $j$'s parent, then $i$ is put ahead. Otherwise, they share the same parent and the bidder with higher per-channel bid is put ahead.
+
+
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3in]{treeliketoy}
+%\caption{An illustrative example shows how the bidder list obtained via the tree-like structured graph. The left is the conflict graph and the right figure is the corresponding tree-like graph.  The index of each bidder in list is given in the node cricle.}
+%\label{fig_treelike}
+%\end{figure}
+
+We use a modified Breadth-First-Search procedure to obtain the bidder list $B$. This procedure first finds the bidder $r$ with the largest per-channel bid. Then it begins at the root bidder and add all the neighboring bidders at the end of the list. Then for each of those neighbor bidders in turn, it adds their neighboring bidders which were unvisited, and so on. Different from traditional breadth-first search, the added neighboring bidders are sorted in a decreasing order of per-channel bid. %Figure \cite{fig_treelike} shows an example illustrating how the bidder list is obtained by the tree-like graph.
+%We use a modified Breadth-First-Search procedure, described in Algorithm \ref{alg_bfs}, to find the bidder list $B$. This procedure first finds the bidder $r$ with the largest per-channel bid. Then it begins at the root bidder and add all the neighboring bidders at the end of the list. Then for each of those neighbor bidders in turn, it adds their neighboring bidders which were unvisited, and so on. Different from traditional breadth-first search, the added neighboring bidders are sorted in a decreasing order of per-channel bid $t_i$ (line 15 in Algorithm \ref{alg_bfs}).
+
+% using the Breadth First Search procedure. This procedure is important since our pricing algorithm and allocation rule are based on the sorted bidders. We  where we find the bidder $r$ with the largest per-channel bid price as the root. The procedure aims to find a bidder list $B$, which
+
+%{\renewcommand\baselinestretch{1}\selectfont
+%\begin{algorithm}[h]
+%    \caption{Breadth-First-Sort-Bidders($\mathcal{N}, G$)}
+%    \label{alg_bfs}
+%    \begin{algorithmic}[1]
+%        \STATE List $B$;\\
+%        \STATE Set $V$;\\
+%        \STATE Queue $Q$;\\
+%        \STATE Find root bidder $r$;\ //the bidder with largest $t_i$;\\
+%        \STATE enqueue $r$ onto $Q$;\\
+%%        \STATE add $r$ to $V$;\\
+%        \STATE $B$.pushback($r$);\ //add the bidder at the end of list\\
+%
+%        \WHILE {$Q$ is not empty}
+%            \STATE $i$ = $Q$.dequeue();
+%            \STATE set $V=\phi$;\\
+%            \FOR{each $j \in \mathbb{N}(i)$}
+%                \IF {$j$ is not in $B$}
+%                    \STATE add $j$ to $V$;\\
+%                \ENDIF
+%            \ENDFOR
+%            \STATE $V^{'} = Sort(V)$;\\
+%            \STATE enqueue $V^{'}$ onto $Q$;\\
+%            \STATE $B$.pushback($V^{'}$);\\
+%
+%        \ENDWHILE
+%    \STATE Return $B$;
+%    \end{algorithmic}
+%\end{algorithm}
+%\par}
+
+
+
+\subsubsection{Determine Prices:} Based on the sorted bidder list $B$, we use the pricing algorithm, described in Algorithm \ref{alg_price}, to compute the price for each bidder. %Before running the algorithm, we first sort bidders into a set $B$ in a manner of descending $t_i$.
+The price for each bidder $i$ is its demand $d_i$ multiplied by the per-channel bid of its \emph{critical bidder}, defined as follows. Given $B$, a critical bidder $c(i)$ of bidder $i$ is a bidder in $B \backslash \{i\}$ where if $t_i < t_{c(i)}$, bidder $i$ will not be allocated, and if $t_i > t_{c(i)}$, bidder $i$ will be allocated. Since $i$'s requirement is rejected only happens when those channels are allocated to $i$'s neighbors, hence its critical bidder must be in its conflicting neighbors $\mathbb{N}(i)$.  If there does not exist such a critical bidder for $i$, the price is set to 0.
+
+%\begin{definition}[Critical Bidder]
+%\emph{Given $B \backslash \{i\}$, a critical bidder $c(i)$ of bidder $i$ is a bidder in $\mathbb{N}(i)$ where if $t_i < t_{c(i)}$, $i$ will not be allocated, and if $t_i > t_{c(i)}$, $i$ will be allocated.}
+%\end{definition}
+
+To find the critical bidder for $i$, we first assume bidder $i$'s requirement has been satisfied (line 2-5), then sequentially allocate bidders by the bidder list $B \backslash \{i\}$, and find its neighboring bidders that cannot be allocated. Then the losing neighboring bidder with the largest per-channel bid is $i$'s critical bidder (line 14-15).
+
+
+{\renewcommand\baselinestretch{1}\selectfont
+\begin{algorithm}[h]
+    \caption{ALETHEIA-Prices($B, i$)}
+    \label{alg_price}
+    \begin{algorithmic}[1]
+        \STATE $p_i = 0$;\\
+        \FOR{each $j\in \mathbb{N}(i)$}
+            \STATE $Avai(j) = Avai(j)-\{1,\ldots, d_i\};$\\
+        \ENDFOR
+        \STATE $B^{'}$ = $B-\{i\}$;\\
+        \WHILE {$B^{'} \neq \phi$}
+            \STATE $j$ = $Top(B^{'})$;
+            \IF{$|Avai(j)| \ge d_j$}
+                \STATE $C = Assign(j,d_j)$;
+                \FOR{each $k \in N(j)$}
+                    \STATE $Avai(k) = Avai(k) - C$;
+                \ENDFOR
+            \ELSIF {$j\in \mathbb{N}(i)$}
+                \STATE $t = d_i*b_j/d_j$;
+                \STATE $p_i = max(p_i, t)$;
+%                \STATE Return $p_i$;
+            \ENDIF
+            \STATE $B^{'} = B^{'} \backslash \{j\}$;
+        \ENDWHILE
+    \STATE Return $p_i$;
+    \end{algorithmic}
+\end{algorithm}
+\par}
+
+\subsubsection{Allocation Rule:}
+%Before allocation, we first use Breadth-First Traversal , denoted as $BFT(B,G)$, to re-order the bidders, with the bidder with the largest per-channel bid as the root node and its neighboring nodes as its successors, from the one with highest per-channel bid to the lowest one. We use $B^{'}$ to denote the re-ordered bidder list. Then based on $B^{'}$, we sequentially check the bidders and allocate the channels.
+Based on bidder list $B$, we sequentially check each bidder. For each bidder $i$, the algorithm checks whether its bid valuation is greater than its computed price. If so, the function $Assign(i,d_i)$ assigns $d_i$ channels with lowest indices in its available channel set $Avai(i)$ to bidder $i$. Otherwise, bidder $i$ loses with no charge. This is because we need to ensure that no bidders will be charged more than ist bid valuation, to incentive bidders to participate the auction. The detailed algorithm is described in Algorithm \ref{alg_alloc}.
+
+{\renewcommand\baselinestretch{1}\selectfont
+\begin{algorithm}[h]
+    \caption{ALETHEIA-Allocation($B$)}
+    \label{alg_alloc}
+    \begin{algorithmic}[1]
+        %\STATE $B^{'} = BFT(B,G)$;
+        \FOR {each $i \in \mathcal{N}$}
+            \STATE $Avai(i) = \mathcal{K}$;
+        \ENDFOR
+        \WHILE {$B \neq \phi$}
+            \STATE $i$ = $Top(B)$;
+            \IF{$b_i > p_i$}
+                \STATE $A = Assign(i,d_i)$;
+                \FOR{each $j \in \mathbb{N}(i)$}
+                    \STATE $Avai(j) = Avai(j) - A$;
+
+                \ENDFOR
+            \ELSE
+                \STATE{$p_i = 0$;}
+            \ENDIF
+            \STATE $B = B\backslash \{i\}$;
+        \ENDWHILE
+    \end{algorithmic}
+\end{algorithm}
+\par}
+
+\textbf{\textit{A Toy Example.}} Consider an example shown in Figure \ref{fig_aletoy}(a), where 5 bidders compete for 3 channels. We first sort the bidders using the breadth-first-search procedure, and obtain the sorted bidder list as shown in Figure \ref{fig_aletoy}(b). To find the critical bidder for bidder D, we first assume CH1 is allocated to D, then A obtains CH1 and CH2, and thus B loses, C obtains CH2 and CH3, and E therefore loses. Since B has the highest per-channel price in D's losing neighbors and thus B becomes D's critical bidder. Similarly, we can find B, A, B and C are the critical bidders of A, B, C and E, respectively. Therefore, by the allocation rule, we know bidders A and E win and other bidders loses. Bidder A wins CH1 and CH2, and bidder E wins CH1 and CH2.
+%By the pricing rule, we can find bidders B, A, , D and C are the critical bidders of B, C and D, respectively. And there do not exist critical bidders for bidders A and E. Therefore, by the allocation rule, we know only bidder D loses and other 4 bidders win. Then by the allocation rule, we can get that bidder B gets CH1, bidder A gets CH2 and CH3, bidder C  gets CH2, and bidder D gets CH1 and CH3.
+
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=2in]{AleToy}
+%\caption{An illustrative example of ALETHEIA, where 3 channels (CH1, CH2 and CH3) are auctioned.}
+%\label{fig_aletoy}
+%\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3in]{tree}
+\caption{An illustrative example of ALETHEIA, where 3 channels (CH1, CH2 and CH3) are auctioned. The left is the conflict graph and the right figure is the corresponding tree-like graph, and the index of each bidder in list $B$ is given in the node circle.}
+\label{fig_aletoy}
+\end{figure}
+
+
+\subsection{Proof of False-name-proofness}
+%We start by giving some technical lemmas. The first one characterize the rule of finding a critical bidder. For easy description, w.l.o.g., we assume $t_1 \ge t_2 \ge \ldots \ge t_N$.
+
+
+We first show the correctness of ALETHEIA, \textit{i.e.}, it always produces a feasible allocation.
+\begin{theorem}
+\label{th_fea}
+   ALETHEIA satisfies allocation feasibility, \textit{i.e.}, for any bidder $i\in \mathcal{N}$, $i$'s requirement will be satisfied when its bid valuation is greater than the price, \textit{i.e.}, $b_i > p_i$.
+\end{theorem}
+\begin{proof}
+%To prove this theorem, we first construct a Breadth-First-Tree based on sorted bidder list $B$. The constructing process is as follows: the first bidder in $B$ is the root node, and then its neighbor bidders constitutes the child nodes, which maintains the decreasing order of per-channel bid price. Then for each neighbor node in turn. For easy description, we assume the left node has higher per-channel price. Note that, this breadth first tree does not change the conflict condition of the conflict graph $G$.
+
+We know the allocation is sequentially conducted on the sorted bidder list $B$. Therefore, to prove this theorem, we use the tree-like structured graph $T$ which is equivalent to the conflict graph $G$ since their conflicting conditions are same.
+
+For ease the description, we define the depth of bidder $i$ in $T$ as $D(i)$. As usual, the depth of root node is defined as 1, and $D(i)$ equals to the shorted distance from node $i$ to the root node plus 1. Suppose $H$ is the depth of the constructed tree, then our theorem is equivalent to the follow theorem: For any bidder $i$, with the height $D(i) \le H$, can be allocated in our allocation when $b_i > p_i$ holds. Now we prove the equivalent theorem using mathematical induction on $H$.
+
+\textbf{Base Case.}
+Case I: $H=1$. In this case, there is only one node, the root node whose demand is less (or equal) than $K$, can be allocated and thus the theorem holds.
+
+Case II: $H=2$. We prove this by contradiction. Assume there exists a bidder $i$, with the depth $D(i)=2$, cannot be allocated when $b_i > p_i$. According to the allocation algorithm, we know that bidder $i$'s requirement is rejected only happens when those channels have been allocated to its neighbor. Since the allocation algorithm sequentially allocates to the bidders from the one with lowest depth to highest one, and for the bidders with same depth, sequentially allocates to the one with highest per-channel bid to the lowest one. As a result, there are two possible cases to cause bidder $i$ loses in the auction. The first case is the channels have been allocated to $i$'s parent, \emph{i.e.,} the root node $r$. If so, then $i$'s critical bidder is root $r$ by the pricing algorithm. This contradicts that $b_i > p_i$. The second case is the allocation of bidder $j$, with $D(j)=2$ and $b_j \ge b_i$. If so, $i$'s critical bidder is $j$ and thus leads to $b_i \le p_i$. In overall, our theorem holds for $H=2$.
+
+\textbf{Induction Step.} Let us assume the theorem holds when $H=m$, we show that it still holds when $H=m+1$.
+
+We prove this by contradiction. Assume there exists a bidder $i$, whose height is $H(i)=m+1$, cannot be allocated when $b_i > p_i$. Still there are only two cases which cause $i$ loses, as shown in Figure \ref{fig_pro}. The first case (Figure \ref{fig_pro} (a)) is that there exist a conflicting node $j$ of $i$ with $D(j)=m$, and node $j$'s allocation would cause $i$ cannot be allocated. In this case, if $t_i \le t_j$, since $i$ and $j$ cannot be allocated simultaneously, therefore by the pricing method, we know the charged price $p_i$ is no less than $d_i*t_j$. This leads to $b_i \le p_i$ and thus to a contradiction. If $t_i > t_j$, since $i$ and $j$ cannot be allocated simultaneously, then for bidder $j$, its charged price is no less than $d_j*t_i$ which leads to $b_j < p_j$ and contradicts that $j$ is a winner. The second case (Figure \ref{fig_pro} (b)) is that there exists a bidder $k$ with $H(k)=m+1$, whose allocation causes $i$ loses. If $t_k < t_i$, since $i$ and $k$ cannot be allocated simultaneously, then for node $k$, the charged price $p_k$ is no less than $d_k*t_i$ which leads to $b_k < p_k$ and contradicts that $k$ is a winner. If $t_k \ge t_i$, by the pricing method, $i$'s computed prices is no less than $d_i*t_k$ which is greater (or equal) than $b_i$. This contradicts that $b_i > p_i$. In overall, there does not exist such a node $i$, which cannot be allocated when $b_i > p_i$. Therefore, our theorem holds for $h=m+1$.
+%We prove this by contradiction. Assume that there exists a bidder $i$ with $b_i > p_i$ loses in the auction. According to the allocation algorithm, we know that only a bidder's neighbors can cause conflicts to the bidder. Since we use breadth first traversal procedure to re-order the bidders and thus there are two cases to cause bidder $i$ loses in the auction, as shown in Figure \ref{fig_pro}. The first is $i$'s parent $j$ directly causes $i$ loses when $j$'s requirement is satisfied. If $i>j$, \emph{i.e.,} $t_i \le t_j$, then for bidder $i$, its per-channel price must be no less than $t_j$, since
+ %This leads to $b_i \le p_i$ and thus contradicts to that $b_i > p_i$. Similarly, if $i < j$, the contradiction also exists. The second case for causing conflicts to $i$ is the bidder $k$, where $k$ and $i$ have the same parent node and $k<i$. Now for bidder $i$, $i$'s per-channel price is no less than $t_k$ which leads to $b_i \le p_i$ and contradicts that $b_i > p_i$. In either cases, $i$ will be allocated when $b_i > p_i$. This completes the proof.
+%This means that there exists a bidder $j \in N(i)$ with $j<i$, satisfying $j$'s requirement will cause conflict to $i$ such that $i$ will lose. Otherwise, $i$'s requirement will be definitely satisfied since no bidders cause conflict to it. Now since $i$ and $j$ cannot be satisfied simultaneously, according to the pricing rule, we know  the critical bidder of $i$ has the lower index than $j$. This means that $b_i$ will be lower than $p_i$ and this completes the proof.
+\end{proof}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=2.2in]{pfig}
+\caption{The cases that bidder $i$'s requirement cannot be satisfied when its conflicting neighbor $j$'s (represented as black node) requirement is satisfied.}
+\label{fig_pro}
+\end{figure}
+
+Now, we establish our main theorem.
+\begin{theorem}
+\label{th_real}
+  ALETHEIA is false-name-proof.
+\end{theorem}
+\begin{proof}
+The proof consists of two parts. First, we need to show that a bidder cannot increase its utility by submitting false-name bids, and this holds directly by the lemma \ref{lm_rf}. Second, we prove that a bidder cannot increase its utility by submitting a cheating bid when using a single identifier, and this holds by the lemma \ref{lm_mid}. In overall, we claim the theorem holds.
+\end{proof}
+
+\begin{lemma}
+\label{lm_rf}
+If a bidder $i$ uses two identifiers $i_1$ and $i_2$ to participate the auction, and obtains a bundle of $x$ and $y$ instances under the identifiers $i_1$ and $i_2$, respectively, then bidder $i$ using a single identifier can obtain a bundle of $z = x+y$ with a utility that is no less than the sum of that obtained by $i_1$ and $i_2$.
+\end{lemma}
+\begin{proof}
+We first consider identifier $i_1$ and $i_2$ are used. we first prove that their critical bidders have the same per-channel bid price, \emph{i.e.,} $t_{c(i_1)} = t_{c(i_2)}$. Assume this claim does not hold, and w.l.o.g., we assume $t_{c(i_1)} > t_{c(i_2)}$. According to the definition, for bidder $i_1$, its allocation would cause bidder $c(i_1)$ loses and  $i_2$'s allocation would cause bidder $c(i_2)$ loses. Now since both $i_1$ and $i_2$ wins and they have the same neighbouring nodes in the conflict graph, we claim that $c(i_2)$'s allocation would also cause $i_1$ lose, which means that $i_1$'s price is $d_{i_1}*max(t_{c(i_1)}, t_{c(i_2)})$. Similarly, we obtain  $i_2$'s price is also $d_{i_2}*max(t_{c(i_1)}, t_{c(i_2)})$, \emph{i.e.,} they have the same charged per-channel price. Now we consider the same auction except that bidder $i$ participates under single identifier. Since the requested channels in both cases are same (\emph{i.e.,}z = x+y) and have the same conflict conditions with $i_1$ and $i_2$, we can declare that $t_{c(i)} = max(t_{c(i_1)}, t_{c(i_2)})$, and thus the per-channel price is same. Therefore, the bidder has the same utility in both cases and this completes the proof.
+\end{proof}
+
+\begin{lemma}
+\label{lm_mid}
+A bidder cannot increase its utility by submitting a cheating bid. (provided that all other bidders and bids are same)
+\end{lemma}
+\begin{proof}
+Assume that bidder $i$'s true valuation is $v_i$, which is different from its bid $b_i$, \emph{i.e.,} $b_i \neq v_i$. We consider the following cases.
+\begin{itemize}
+\item Case I: Bidder $i$ loses by bidding $b_i$ and wins by bidding $v_i$. We have $u_i(v_i)> 0 = u_i(b_i)$.
+ \item Case II: Bidder $i$ loses by bidding both $b_i$ and $v_i$, we have $u_i(v_i)= u_i(b_i)=0$.
+ %If $i$ wins by bidding both $b_i$ and $v_i$. Since the price is irrelevant with bidder $i$'s bid and thus we have $u_i(v_i) = u_i(b_i)$.
+ \item Case III: Bidder $i$ wins by bidding $b_i$ and loses by bidding $v_i$. This case only happens when $t_{c(i)} > t_i$, and thus we have $u_i(v_i) = 0 > u_i(b_i)$.
+ \item Case IV: Bidder $i$ wins by bidding both $b_i$ and $v_i$. Since the critical bidder only depends on its required bundle and other bidders' requirements, while these parameters do no change with its bids and thus the critical bidders are same for both cases. Therefore it is easy to get $u_i(v_i) = u_i(b_i)$.
+\end{itemize}
+
+In conclusion, we have $u_i(v_i) \ge u_i(b_i)$ in all cases, this completes the proof.
+\end{proof}
+
+%\begin{theorem}
+%ALETHEIA satisfies individual rationality.
+%\end{theorem}
+%\begin{proof}
+%Implied directly by the allocation rule.
+%\end{proof}
+
+\subsection{Computational Complexity}
+We now analyze the running time of ALETHEIA running on a given conflict graph $G(V,E)$, with $N$ bidders competing for $K$ identical channels. First, ALETHEIA uses breadth-first-search procedure to construct the bidder list which takes $O(N+|E|)$, and also sort each bidder's neighbor nodes which takes $O(N\log N)$ in the worst case. Therefore this sorting procedure takes at most $O(N+|E|+N\log N)$. Based on bidder list $B$, then for each bidder, ALETHEIA-Prices takes $2K|E|$ to update the available channel information of all bidders' neighboring bidders. Therefore ALETHEIA takes $O(NK|E|)$ to compute the prices for all bidders. Second, ALETHEIA-Allocation uses $O(N)$ to allocate channels to bidders and uses $2|E|$ to update the availability of each bidder's channel, and hence its complexity is only of $O(N+|E|)$. Together, the overall complexity of FAITH is $O(N\log N + |E|+ NK|E|)$. %This complexity is same with that of VERITAS.
+
+\begin{theorem}
+ALETHEIA runs in $O(N\log N + |E| + NK|E|)$, where $|E|$ is the number of edges in the conflict graph $G$, $N$ is the number of bidders, and $K$ is the number of channels auctioned. Because, $|E| \le N(N-1)/2$, ALETHEIA runs in less than $O(N^3K)$.
+\end{theorem}
+
+
+%\begin{theorem}
+%  FAITH runs in time $O(N\log N + NM)$, where $N$ is the number of bidders and $M$ is the number of types of VM instances.
+%\end{theorem}
+
+\section{Extension to Other Request Formats}
+
+In this section, we show that ALETHEIA can be extended to a general case to support different spectrum request formats. In particular, bidders are not limited to be single-minded where bidder $i$ requests $d_i$ channels but accepts to obtain any number of channels between 0 and $d_i$.
+
+\subsection{Assumptions}
+Now because bidder's requirement can be partially satisfied, we therefore need to characterize the valuation function. For each bidder $i$ who requests $d_i$ channels with true valuation $v(d_i)$, we assume the valuation function satisfies  \emph{free disposal} \cite{Bartal:ACM:03}, \emph{i.e.,} for any $d_i^{'}\ge d_i$, we have $v(d_i) = v(d_i^{'})$, where $d_i$ is the demands required by $i$. Free disposal means when $i$'s requirement is completely satisfied, allocating more channels will not improve its utility. This assumption is very common and natural.
+%This assumption means that the excess bundle for bidder $i$ (besides $\mathbf{d}_i$) will be useless.
+Furthermore, we assume the valuation function satisfies \emph{super-additive}, \emph{i.e.,} for any  $d_1$ and $d_2$,  we have
+\begin{equation}
+\label{eq_e}
+v(d_i) \ge v(d_1)+v(d_2), \quad \text{if}  (d_1+d_2) \le d_i.
+\end{equation}
+
+Super-additive means that bidders would have lower utility when their requirements cannot be fulfilled completely. It is reasonable since bidders would like to pursue the whole requested spectrum. From the above definitions, we observe that the earlier assumption of single-minded bidders (all-or-nothing case) is a special case of the new assumption here.
+
+%\subsection{Design Challenge}
+
+
+\subsection{Range-ALETHEIA Auction Design}
+
+When a bidder's requirement can be partially satisfied, it may choose to lie on channel demand for profit gain if possible. This type of \emph{demand reduction cheating} \cite{Wiggans:IER:06} may breaks the false-name-proofness. We use an example to illustrate this.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3in]{dlie}
+\caption{An illustration of demand reduction lie. The right figure is corresponding breadth-first tree of left figure.}
+\label{fig_dr}
+\end{figure}
+
+\textbf{Demand Reduction Cheating:} Given the conflict graph in Fig. \ref{fig_dr},  there are 4 bidders (named A - D) attend the auction to compete $K=4$ channels, the bids and the demands are given in the Figure \ref{fig_dr}. According to ALETHEIA, bidder C wins and other bidders loses. Bidder C's critical bidder is A, and thus its utility is computed as $12-3*3 = 3$. Now we assume bidder C cheats on demand, \emph{i.e.,} submitting $b_i=8$ for requesting $d_i=2$ channels, and other bidders stay unchanged. Now by the ALETHEIA, we know only bidder B loses and other bidders win, and C's critical bidder now becomes bidder B. In this case, the utility of C is $8-1*2 = 6$. That is to say, bidder C can reduce the demand to improve his own utility.
+
+Based on the above observations, we need to prevent the demand reduction cheating. We complete this by designing an additional procedure, described in Algorithm \ref{alg_dr}, to the original mechanism. In other words, Range-ALETHEIA consists of ALETHEIA and the procedure. The basic idea behind this procedure is that we need to find the possible maximum utility for each winner $i$ when it reduces its channel demands, to ensure the strategy-proofness.
+
+{\renewcommand\baselinestretch{1}\selectfont
+\begin{algorithm}[h]
+    \caption{Procedure $PreventDR()$}
+    \label{alg_dr}
+    \begin{algorithmic}[1]
+        \FOR {$i=1$ to $N$}
+            \IF {$i$ is a winner}
+                \FOR{each $<b_{i^{'}},d_{i^{'}}>\in \mathcal{L}$}
+                    \STATE $\mathcal{N} = \mathcal{N} \backslash \{i\} \cup \{i^{'}\}$;
+                    \STATE $p_{i^{'}} = $ ALETHEIA-Prices($i^{'}$);
+                    \STATE $u_{i^{'}} = v_{i^{'}} - p_{i^{'}}$;
+                    \IF {$u_{i^{'}} > u_i$}
+                        \STATE $u_i = u_{i^{'}}$;
+                        \STATE Re-allocate $d_{i^{'}}$ channels to $i$.
+                    \ENDIF
+                \ENDFOR
+            \ENDIF
+        \ENDFOR
+
+    \end{algorithmic}
+\end{algorithm}
+\par}
+
+
+In Algorithm \ref{alg_dr}, we traversal all possible demand reduction lies, from $d_i$ to $d_i-1$ $\ldots$ to 1, to find the maximal utility for each winner $i$ in ALETHEIA. We denote the cheating set as $\mathcal{L}=\{<v(d_i),d_i>, <v(d_i-1),d_i-1>, \dots, <v(1),1> \}$. In detail, for each possible cheating $<b_{i^{'}},d_{i^{'}}> \in \mathcal{L}$, we re-run ALETHEIA-price with $i^{'}$ to compute its new utility $u_{i^{'}}$. If the newly obtained utility $u_{i^{'}}$ is much greater than the obtained utility that $i$ bids $b_i$ for $d_i$ channels, then we withdraw $i$'s previous allocation and reallocate $d_{i^{'}}$ to $i$. Note that the remaining channels $d_i - d_{i^{'}}$ will not be allocated to other bidders. For instance, in the above example, if bidder C's utility is maximized when bidding for 2 channels, then $i$ wins 2 channels and the three others still lose.
+
+\subsection{Range-ALETHEIA Properties}
+
+\begin{theorem}
+\label{th_rfea}
+   Range-ALETHEIA satisfies allocation feasibility.
+\end{theorem}
+\begin{proof}
+Since Range-ALETHEIA is based on ALETHEIA results and only decreases the number of  allocated channels of each winner in ALETHEIA, and thus Range-ALETHEIA does not violate the allocation feasibility property.
+\end{proof}
+
+\begin{theorem}
+\label{th_rangefp}
+   Range-ALETHEIA is false-name-proof.
+\end{theorem}
+\begin{proof}
+The proof consists of two parts. First, we need to show that a bidder cannot increase its utility by submitting false-name bids. Second, we prove that a bidder cannot increase its utility by submitting a cheating bid when using a single identifier. For the first part, we still first consider identifiers $i_1$ and $i_2$ are used. The only differences come from Range-ALETHEIA are that they may choose demand reduction cheating. Assume the utility of bidder $i_1$ is maximized when bidding $b_{{i_1}^{'}}$ for $d_{{i_1}^{'}}$, its utility is $u_{{i_1}^{'}} = v(d_{{i_1}^{'}})-d_{{i_1}^{'}}*t_{c({i_1}^{'})}$.  Similarly, we get the utility of $i_{2}$, \emph{i.e.,} $u_{{i_2}^{'}} = v(d_{{i_2}^{'}})-d_{{i_2}^{'}}*t_{c({i_2}^{'})}$. Now we consider the same auction except that bidder $i$ participates under single identifier. If $i$ chooses to lie on demand, we have $t_{c(i^{'})} \le t_{c({i_1}^{'})}$ and $t_{c(i^{'})} \le t_{c({i_2}^{'})}$. Moreover, by Equation (\ref{eq_e}), we get $v(d_{{i_1}^{'}}+d_{{i_2}^{'}}) \ge v(d_{{i_1}^{'}}) + v(d_{{i_2}^{'}})$. Combined these, we obtain the following equation.
+
+\begin{equation}
+\label{eq_f}
+u_{i^{'}} = v(d_{{i_1}^{'}}+ d_{{i_2}^{'}}) - (d_{{i_1}^{'}}+d_{{i_2}^{'}})*t_{c(i^{'})} \ge u_{{i_1}^{'}} + u_{{i_2}^{'}}
+\end{equation}
+
+Now if $i$ chooses demand reduction cheating, then its utility is at least $u_{i^{'}}$. If $i$ does not choose demand reduction lie, its utility $u_i$ is maximal when bidding truthfully and is greater (or equal) than $u_{i^{'}}$. In summary, this part of claim holds by Equation \ref{eq_f}.
+
+For the second part,
+%the cases that bidder $i$ does not choose demand reduction lie are same with that in FAITH, and thus this claim holds. Now
+we consider the case bidder $i$ chooses demand reduction cheating. Since the demand reduction lie only happens when $i$ is a winner. Moreover, the payment is irrelevant with its bidding valuation $b_i$ and $v_i$ (where $b_i\neq v_i$). Thus it has the same utility no matter whether it cheats on demand or not. Therefore, we claim that a bidder using a single identifier cannot increase its utility by cheating on bid.
+\end{proof}
+
+%\begin{theorem}
+%\label{th_rangeir}
+%   Range-ALETHEIA satisfies individual rationality.
+%\end{theorem}
+%\begin{proof}
+%ALETHEIA ensures each winner's utility is positive. In Range-ALETHEIA, its added procedure only makes each winner's utility to be increased (or at least stays unchanged).
+%\end{proof}
+
+\begin{theorem}
+Range-ALETHEIA runs in polynomial complexity, which is less than $O(N^2K^2|E|)$.
+\end{theorem}
+\begin{proof}
+We now analyze the complexity. For each bidder $i$, we need to run ALETHEIA-prices at most $d_i$ times and thus the prevent demand reduction lie procedure takes $N \cdot d_i\cdot O(NK|E|)$ for each bidder.  Therefore, the Range-ALETHEIA runs in complexity less than $O(N^2K^2|E|)$.
+\end{proof}
+
+
+
+
+\section{ALETHEIA Experiments}
+In this section, we perform simulation experiments to evaluate the performance of ALETHEIA.
+
+\subsection{Simulation Methodology}
+We assume bidders are randomly deployed in a square $100\times 100$ area, and we set the interference range as 10, \emph{i.e.,} if the distance between any two bidders is less than 0.1, they will interfere with each when using the same channel simultaneously. The per-channel bids of bidders are randomly distributed in the range [0,1]. To overcome the impact of randomness, the results are all averaged over 100 times of running. We use the \emph{revenue} and \emph{spectrum utilization} as our performance metrics. Revenue is the sum of all winner's payments and spectrum utilization is sum of allocated channels of all winning bidders.
+
+\subsection{False-name-proof vs Strategy-proof Auctions}
+We first compare ALETHEIA with VERITAS to answer the question: whether providing false-name-proofness causes performance loss when no bidders submit false-name bids? We compare these two auctions in two scenarios. Firstly, we vary the number of auctioned channels from 2 to 20 and set the number bidders as 300. Each bidder's request is either 1 or 2.  Secondly, we vary the number of bidders and set the number of auctioned channels as 4, and bidders' requests are integers and randomly draw from [1,4].
+
+\subsection{Performance of ALETHEIA}
+We now compare ALETHEIA with a simple false-name-proof auction design, referred as SIMPLE, by extending the GAL design \cite{Terada:03:AAMAS}. SIMPLE proceeds as follows. Divide the region into boxes with length of the maximal interference radius, and split $K$ channels into 4 subsets with $K/4$ channels each. In each square box, we apply the GAL assuming the all bidders in the box conflict with each other. It is straightforward to show that SIMPLE is false-name-proof.
+
+\section{Related Work}
+Spectrum allocation mechanisms have been studied extensively in recent years. A number of auction designs have been proposed to improve spectrum utilization and allocation efficiency. As pioneers in spectrum auction design, Zhou \emph{et al.} \cite{Mobicom08:Zhou} designed VERITAS, the first strategy-proof spectrum auction considering spectrum reusability. Recently, this work has been extended to consider double spectrum auctions \cite{Zhou:09:info}. Jia \emph{et al.} \cite{Jia:09:Mobihoc} and Al-Ayyoub \emph{et al.} \cite{Al:11:INFOCOM} designed spectrum auctions to maximize the expected revenue by assuming bidders' bids are drawn from a known distribution. Wu \emph{et al.} \cite{Wu:11:INFOCOM} proposed SMALL for the scenario where the owner of the spectrum has a reserved price for each channel. Wang \emph{et al.} \cite{Wang:TPDS:13} proposed TRUMP to allocate spectrum access rights on the basis of QoS demands. These works mainly focus on how to achieve strategy-proofness to incentive a bidder to bid its true valuation of spectrum. However,  none of the existing spectrum auction designs provides any guarantee on resisting false-name bid cheating.
+
+With the development of Internet auctions, the false-name bid cheating has attracted more interests. The effects of false-name bids on combinatorial auctions are analyzed in \cite{Yokoo:GEB:04}. Following that, a series of mechanisms that are false-name-proof in various settings have been developed. In \cite{Yokoo:AI:02}, a leveled division set based mechanism has been proposed for multi-item single-unit auctions and it is shown to be false-name-proof. In \cite{Yokoo:ijcai:01}, a false-name-proof mechanism has been proposed to address the multi-unit auction. Recently, this work has been extended for double auction mechanisms \cite{Yokoo:dcs:05}. However, as shown in this paper, these works either lose false-name-proofness or create excess interference when directly applied to spectrum auctions considering spatial reusability.
+
+Different from the existing spectrum auction mechanisms, our work not only provides strategy-proofness but also resists false-name bid cheating. At the same time, different form traditional false-name-proof auction mechanisms, we redesign the pricing and allocation rules to achieve false-name-proofness while considering spatial reusability of spectrum.
+
+\section{Conclusions}
+In this paper, we study the new type of cheating, referred as false-name bid cheating, in dynamic spectrum auctions for Cognitive Radio Networks (CRNs). We have shown this type of cheating to what extent can impact on the performance of spectrum auctions. We further propose ALETHEIA, a new spectrum auction design to resist false-name bid cheating while guaranteing strategy-proofness. To the best of our knowledge, ALETHEIA is the first spectrum auction design to achieve false-name-proofness in large-scale networks with spectrum reuse. Moreover, we show ALETHEIA is highly efficient and flexible, and can be easily extended to suit multiple needs of the bidders.
+
+
+%\end{document}  % This is where a 'short' article might terminate
+
+%ACKNOWLEDGMENTS are optional
+%\section{Acknowledgments}
+%This section is optional; it is a location for you
+%to acknowledge grants, funding, editing assistance and
+%what have you.  In the present case, for example, the
+%authors would like to thank Gerald Murray of ACM for
+%his help in codifying this \textit{Author's Guide}
+%and the \textbf{.cls} and \textbf{.tex} files that it describes.
+
+%
+% The following two commands are all you need in the
+% initial runs of your .tex file to
+% produce the bibliography for the citations in your paper.
+\bibliographystyle{abbrv}
+\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
+% You must have a proper ".bib" file
+%  and remember to run:
+% latex bibtex latex latex
+% to resolve all references
+%
+% ACM needs 'a single self-contained file'!
+%
+%APPENDICES are optional
+%\balancecolumns
+%\appendix
+%%Appendix A
+%\section{Headings in Appendices}
+%The rules about hierarchical headings discussed above for
+%the body of the article are different in the appendices.
+%In the \textbf{appendix} environment, the command
+%\textbf{section} is used to
+%indicate the start of each Appendix, with alphabetic order
+%designation (i.e. the first is A, the second B, etc.) and
+%a title (if you include one).  So, if you need
+%hierarchical structure
+%\textit{within} an Appendix, start with \textbf{subsection} as the
+%highest level. Here is an outline of the body of this
+%document in Appendix-appropriate form:
+%\subsection{Introduction}
+%\subsection{The Body of the Paper}
+%\subsubsection{Type Changes and  Special Characters}
+%\subsubsection{Math Equations}
+%\paragraph{Inline (In-text) Equations}
+%\paragraph{Display Equations}
+%\subsubsection{Citations}
+%\subsubsection{Tables}
+%\subsubsection{Figures}
+%\subsubsection{Theorem-like Constructs}
+%\subsubsection*{A Caveat for the \TeX\ Expert}
+%\subsection{Conclusions}
+%\subsection{Acknowledgments}
+%\subsection{Additional Authors}
+%This section is inserted by \LaTeX; you do not insert it.
+%You just add the names and information in the
+%\texttt{{\char'134}additionalauthors} command at the start
+%of the document.
+%\subsection{References}
+%Generated by bibtex from your ~.bib file.  Run latex,
+%then bibtex, then latex twice (to resolve references)
+%to create the ~.bbl file.  Insert that ~.bbl file into
+%the .tex source file and comment out
+%the command \texttt{{\char'134}thebibliography}.
+%% This next section command marks the start of
+%% Appendix B, and does not continue the present hierarchy
+%\section{More Help for the Hardy}
+%The sig-alternate.cls file itself is chock-full of succinct
+%and helpful comments.  If you consider yourself a moderately
+%experienced to expert user of \LaTeX, you may find reading
+%it useful but please remember not to change it.
+%%\balancecolumns % GM June 2007
+%% That's all folks!
+\end{document}
